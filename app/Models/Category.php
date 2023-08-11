@@ -9,4 +9,11 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Category extends Model
 {
     use HasFactory;
+
+    protected $guarded = [];
+
+    public function books()
+    {
+        return $this->hasMany(Book::class);
+    }
 }
