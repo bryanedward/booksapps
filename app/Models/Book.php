@@ -10,16 +10,13 @@ class Book extends Model
 {
     use HasFactory;
 
+    protected $table = 'books';
 
-    // protected $table = 'books';
+    protected $guarded = [];
 
-    // protected $model = Book::class;
-
-    // protected $guarded = [];
-
-    // protected $hidden = [
-    //     'updated_at',
-    // ];
+    protected $hidden = [
+        'updated_at',
+    ];
 
 
     public function category()
