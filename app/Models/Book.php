@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Book extends Model
 {
@@ -18,12 +17,10 @@ class Book extends Model
         'updated_at',
     ];
 
-
     public function category()
     {
-        return $this->belongsTo(Category::class, "id");
+        return $this->belongsTo(Category::class, 'id');
     }
-
 
     // public function getIdAttribute()
     // {

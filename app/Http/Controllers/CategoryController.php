@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
 use App\Models\Category;
+use Illuminate\Support\Facades\Log;
 
 class CategoryController extends Controller
 {
@@ -29,7 +30,15 @@ class CategoryController extends Controller
      */
     public function store(StoreCategoryRequest $request)
     {
-        //
+        try {
+            Log::info($request);
+            $category = new Category;
+            $category->title = $request->title;
+            $category->save();
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+
     }
 
     /**
