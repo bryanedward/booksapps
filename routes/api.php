@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\CategoryController;
 use Illuminate\Http\Request;
@@ -32,4 +33,6 @@ Route::prefix('category')->group(function () {
 
 Route::group(['as' => 'api.'], function () {
     Orion::resource('posts', BookController::class);
+    Orion::morphToManyResource('posts', 'authors', AuthorController::class);
+
 });
