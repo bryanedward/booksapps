@@ -4,28 +4,25 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Book extends Model
 {
     use HasFactory;
 
+    protected $table = 'books';
 
-    // protected $table = 'books';
+    protected $guarded = [];
 
-    // protected $model = Book::class;
+    protected $hidden = [
+        'updated_at',
+    ];
 
-    // protected $guarded = [];
-
-    // protected $hidden = [
-    //     'updated_at',
-    // ];
-
-
-    public function category()
+    public function author(): HasMany
     {
-        return $this->belongsTo(Category::class, "id");
+        return $this->hasMany(Author::class);
     }
+
 
 
     // public function getIdAttribute()
